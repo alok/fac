@@ -10,7 +10,7 @@ import (
 )
 
 // ErrUnknownCmd is returned when user inputs an invalid character
-var ErrUnknownCmd = errors.New("This person doesn't know whats going on")
+var ErrUnknownCmd = errors.New("This person doesn't know what's going on.")
 
 // ErrOpenEditor is returned when the user wants to open an editor
 // Note that the current instance of gocui must be destroyed before opening an editor
