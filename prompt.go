@@ -14,7 +14,7 @@ var ErrUnknownCmd = errors.New("This person doesn't know what's going on.")
 
 // ErrOpenEditor is returned when the user wants to open an editor
 // Note that the current instance of gocui must be destroyed before opening an editor
-var ErrOpenEditor = errors.New("Screen is tainted after opening vim")
+var ErrOpenEditor = errors.New("Screen is tainted after opening $EDITOR")
 
 // PrintPrompt prints the promptString on the bottom left corner of the screen
 // Note that the prompt is composed of two seperate views,
@@ -41,7 +41,7 @@ func PrintPrompt(g *gocui.Gui) {
 
 // Evaluate evalutes the user's input character by character
 // It returns `ErrUnknownCmd` if the string contains an invalid command
-// It also returns `ErrNeedRefresh` if user uses `e` command to open vim
+// It also returns `ErrNeedRefresh` if user uses `e` command to open $EDITOR.
 func Evaluate(g *gocui.Gui, v *gocui.View, conf *conflict.Conflict, input string) (err error) {
 	for _, c := range input {
 		switch c {
